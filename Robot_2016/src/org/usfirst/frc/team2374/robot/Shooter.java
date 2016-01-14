@@ -19,9 +19,30 @@ public class Shooter {
 
 	}
 
-	public void update(double wheelSpeed, boolean wheelButtonPressed) {
-		if (wheelButtonPressed) {
+	boolean wheelForwardEngaged = false;
+	boolean wheelReverseEngaged = false;
+	public void update(double wheelSpeed, boolean forwardWheelButtonPressed, boolean reverseWheelButtonPressed) { //Comment through this method for review and/or clarity
+		if (forwardWheelButtonPressed) {
+			wheelForwardEngaged=!wheelForwardEngaged;
+		}
+		if(wheelForwardEngaged){
 			wheel.set(wheelSpeed);
+		}
+		if(!wheelForwardEngaged){
+			wheel.set(0);
+		}
+		if (reverseWheelButtonPressed) {
+			wheelReverseEngaged=!wheelReverseEngaged;
+		}
+		if(wheelReverseEngaged){
+			wheel.set(-wheelSpeed);
+		}
+		if(!wheelReverseEngaged){
+			wheel.set(0);
+		}
+		if(wheelForwardEngaged&&wheelReverseEngaged){
+			wheel.set(-wheelSpeed);
+			wheelForwardEngaged=false;
 		}
 	}
 	
