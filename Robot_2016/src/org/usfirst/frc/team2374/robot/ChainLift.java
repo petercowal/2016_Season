@@ -9,10 +9,12 @@ public class ChainLift {
 		mainMotor = new Talon(motorPort);
 	}
 	
-	public void update(){
+	public void update(double rawAxis){
 		/*
-		 * Implement a method that takes an input of a raw axis and adjusts the motor speed accordingly
+		 * Implement a method that takes an input of a raw axis as a parameter
+		 * and adjusts the motor speed accordingly
 		 */
+		mainMotor.set(rawAxis);
 	}
 
 }
