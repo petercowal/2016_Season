@@ -22,7 +22,7 @@ public class Drivetrain {
 		l2 = new Talon(1);
 		r1 = new Talon(2);
 		r2 = new Talon(3);
-		encoder = new Encoder(2, 3); // Change ports later if necessary
+		encoder = new Encoder(8, 9); // Change ports later if necessary
 		targetHeading = 0;
 		solenoidBack = new DoubleSolenoid(4, 5); // CHANGE PORTS LATER
 		solenoidFront = new DoubleSolenoid(6, 7); // CHANGE THE PORTS PLEASE
@@ -45,7 +45,7 @@ public class Drivetrain {
 				} else if (solenoidBack.get() == DoubleSolenoid.Value.kForward) {
 					solenoidBack.set(DoubleSolenoid.Value.kReverse);
 				} else if (solenoidBack.get() == DoubleSolenoid.Value.kReverse) {
-					solenoidBack.set(DoubleSolenoid.Value.kOff);
+					solenoidBack.set(DoubleSolenoid.Value.kForward);
 				}
 				backSolCanPress = false;
 			} else {
@@ -60,7 +60,7 @@ public class Drivetrain {
 				solenoidFront.set(DoubleSolenoid.Value.kReverse);
 			}
 			if (solenoidFront.get() == DoubleSolenoid.Value.kReverse) {
-				solenoidFront.set(DoubleSolenoid.Value.kOff);
+				solenoidFront.set(DoubleSolenoid.Value.kForward);
 			}
 			frontSolCanPress = false;
 		} else {
