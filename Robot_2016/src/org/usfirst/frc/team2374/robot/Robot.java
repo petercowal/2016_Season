@@ -38,13 +38,26 @@ public class Robot extends SampleRobot {
     /**
      * Drive left & right motors for 2 seconds then stop
      */
-    public void autonomous() {
+    public void worstCaseAutonomous() {
         myRobot.setSafetyEnabled(false);
-        myRobot.drive(-0.5, 0.0);	// drive forwards half speed
+        myRobot.drive(0.5, 0.0);	// drive backwards half speed
+        Timer.delay(2.0);		//    for 2 seconds
+        myRobot.drive(0.0, 0.0);	// stop robot
+    }
+    
+    public void terrainAutonomous() {//make more terrain autonomous modes
+    	myRobot.setSafetyEnabled(false);
+        myRobot.drive(0.5, 0.0);	// drive backwards half speed
         Timer.delay(2.0);		//    for 2 seconds
         myRobot.drive(0.0, 0.0);	// stop robot
     }
 
+    public void terrainAndShootAutonomous() {
+    	myRobot.setSafetyEnabled(false);
+        myRobot.drive(0.5, 0.0);	// drive backwards half speed
+        Timer.delay(2.0);		//    for 2 seconds
+        myRobot.drive(0.0, 0.0);	// stop robot
+    }
     /**
      * Runs the motors with arcade steering.
      */
