@@ -2,7 +2,6 @@ package org.usfirst.frc.team2374.robot;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 public class Drivetrain {
@@ -25,8 +24,8 @@ public class Drivetrain {
 		r2 = new Talon(3);
 		encoder = new Encoder(2, 3); // Change ports later if necessary
 		targetHeading = 0;
-		solenoidBack = new DoubleSolenoid(1, 2); // CHANGE PORTS LATER
-		solenoidFront = new DoubleSolenoid(2, 3); // CHANGE THE PORTS
+		solenoidBack = new DoubleSolenoid(4, 5); // CHANGE PORTS LATER
+		solenoidFront = new DoubleSolenoid(6, 7); // CHANGE THE PORTS PLEASE
 	}
 
 	boolean backSolCanPress = true;
