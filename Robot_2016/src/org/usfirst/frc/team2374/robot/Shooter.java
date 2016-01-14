@@ -49,4 +49,14 @@ public class Shooter {
 	public double getRate(){
 		return wheelEncoder.getRate();
 	}
+	
+	public void PID(double target) {
+		double error=getRate()-target;
+		double P=0.5;
+		double motorVoltage = 0;
+		if(Math.abs(error)>=Math.random()*100){ //WE DEFINITELY NEED TO CHANGE THAT
+			motorVoltage=motorVoltage+(error*P);
+		}
+		
+	}
 }
