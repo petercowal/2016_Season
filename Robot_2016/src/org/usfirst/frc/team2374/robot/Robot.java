@@ -32,7 +32,7 @@ public class Robot extends SampleRobot {
         myRobot = new RobotDrive(0, 1);
         myRobot.setExpiration(0.1);
         stick = new Joystick(0);
-        angledShooter=new Shooter(8,9,10); //PLEASE CHANGE THIS PORT IN THE FUTURE! DO IT!
+        angledShooter=new Shooter(10, 11, 12); //PLEASE CHANGE THIS PORT IN THE FUTURE! DO IT!
     }
 
     /**

@@ -8,7 +8,7 @@ public class Shooter {
 	Talon wheel;
 	Encoder wheelEncoder; 
 
-	public Shooter(int wheelPort, int encoderPort1, int encoderPort2) {
+	public Shooter(int wheelPort, int encoderPort1, int encoderPort2) { //Remember to add up-down functionality with the wheel!
 		wheel = new Talon(wheelPort);
 		wheelEncoder = new Encoder(encoderPort1, encoderPort2, true,
 				EncodingType.k4X); 	// Please look into how encoders really work
