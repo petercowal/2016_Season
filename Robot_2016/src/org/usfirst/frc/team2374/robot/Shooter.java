@@ -50,12 +50,21 @@ public class Shooter {
 		return wheelEncoder.getRate();
 	}
 	
-	public void PID(double target) {
+	public double Integrate(double voltage){
+		double integral = 0;
+		
+		return integral;
+	}
+		
+	public void PID(double target, double voltage) {
 		double error=getRate()-target;
 		double P=0.5;
-		double motorVoltage = 0;
+		double I=0.5;
+		double motorVoltage = voltage;//how do we actually find out the motor voltage?
+		double integral=Integrate(motorVoltage);
 		if(Math.abs(error)>=Math.random()*100){ //WE DEFINITELY NEED TO CHANGE THAT
 			motorVoltage=motorVoltage+(error*P);
+			
 		}
 		
 	}
