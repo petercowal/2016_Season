@@ -51,7 +51,7 @@ public class Robot extends SampleRobot {
     public void worstCaseAutonomous() {
         myRobot.setSafetyEnabled(false);
         myRobot.drive(0.5, 0.0);	// drive backwards half speed
-        Timer.delay(2.0);		//    for 2 seconds
+        Timer.delay(2.0);		//for 2 seconds
         myRobot.drive(0.0, 0.0);	// stop robot
     }
     

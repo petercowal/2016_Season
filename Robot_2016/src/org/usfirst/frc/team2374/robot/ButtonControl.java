@@ -8,13 +8,16 @@ public class ButtonControl {
 	ChainLift chainLift;
 	Drivetrain drivetrain;
 	Intake intake;
-	double speed;
+	double shooterSpeed;
 	public ButtonControl(Shooter s, ChainLift c, Drivetrain d, Intake i){
 		shooter = s;
 		chainLift = c;
 		drivetrain = d;
 		intake = i;
 		controller = new Joystick(0);
-		shooter.update(speed, controller.getRawButton(5), controller.getRawButton(6));
+		shooter.update(shooterSpeed, controller.getRawButton(5), controller.getRawButton(6));
+		boolean backSolPressed=controller.getRawAxis(2)!=0;
+		boolean frontSolPressed=controller.getRawAxis(3)!=0;
+		drivetrain.update(controller.getRawAxis(1), controller.getRawAxis(5), backSolPressed, frontSolPressed);
 	}
 }
