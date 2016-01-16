@@ -3,7 +3,10 @@ package org.usfirst.frc.team2374.robot;
 import edu.wpi.first.wpilibj.Joystick;
 
 public class ButtonControl {
-	Joystick controller;
+	Joystick controller; //Controller to manage all of the systems
+	/*
+	 * Below, all of the systems are implemented.
+	 */
 	Shooter shooter;
 	ChainLift chainLift;
 	Drivetrain drivetrain;
