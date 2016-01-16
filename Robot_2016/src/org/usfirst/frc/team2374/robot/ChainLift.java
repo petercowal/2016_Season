@@ -6,7 +6,7 @@ public class ChainLift {
 	Talon mainMotor;
 	
 	public ChainLift(int motorPort){
-		mainMotor = new Talon(motorPort);
+		mainMotor = new Talon(motorPort); //This is a motor
 	}
 	
 	public void update(double rawAxis){
