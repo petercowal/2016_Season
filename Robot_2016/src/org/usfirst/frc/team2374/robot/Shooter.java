@@ -64,21 +64,15 @@ public class Shooter {
 
 	double prevError;
 
-	public double Integrate(double voltage) {
-		double integral = 0;
-
-		return integral;
-	}
-
 	double motorVoltage = 0;
 	double integral;
 
 	public void PID(double target) {
-		double error = getRate() - target;
+		double error = target - getRate();
 		double P = 0.005;
 		double I = 0.00005;
 		double D = -0.005;
-		if (Math.abs(error) >= 0) { // WE DEFINITELY NEED TO CHANGE THAT
+		if (Math.abs(error) >= 0) {
 			motorVoltage += (error * P) + (error - prevError) * D
 					+ (integral * I);
 			if (motorVoltage > 1) {
