@@ -23,16 +23,26 @@ import edu.wpi.first.wpilibj.Timer;
  * don't. Unless you know what you are doing, complex code will be much more difficult under
  * this system. Use IterativeRobot or Command-Based instead if you're new.
  */
+
+
 public class Robot extends SampleRobot {
     RobotDrive myRobot;
     Joystick stick;
     Shooter angledShooter;
+    ChainLift chainlift;
+    Intake intake;
+    Drivetrain drivetrain;
+    ButtonControl buttonControl;
 
     public Robot() {
         myRobot = new RobotDrive(0, 1);
         myRobot.setExpiration(0.1);
         stick = new Joystick(0);
         angledShooter=new Shooter(10, 11, 12); //PLEASE CHANGE THIS PORT IN THE FUTURE! DO IT!
+        drivetrain = new Drivetrain();
+        chainlift = new ChainLift(13);
+        intake = new Intake(14);
+        buttonControl = new ButtonControl(angledShooter,chainlift,drivetrain,intake);
     }
 
     /**

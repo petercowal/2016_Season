@@ -27,7 +27,6 @@ public class Shooter {
 									// types and all that jazz
 
 	}
-
 	boolean wheelForwardEngaged = false;
 	boolean wheelReverseEngaged = false;
 
@@ -38,7 +37,7 @@ public class Shooter {
 			wheelForwardEngaged = !wheelForwardEngaged;
 		}
 		if (wheelForwardEngaged) {
-			wheel.set(wheelSpeed);
+			PID(wheelSpeed);
 		}
 		if (!wheelForwardEngaged) {
 			wheel.set(0);
@@ -49,7 +48,7 @@ public class Shooter {
 			wheelReverseEngaged = !wheelReverseEngaged;
 		}
 		if (wheelReverseEngaged) {
-			wheel.set(-wheelSpeed);
+			PID(-wheelSpeed);
 		}
 		if (!wheelReverseEngaged) {
 			wheel.set(0);
