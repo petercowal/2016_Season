@@ -42,6 +42,8 @@ public class Shooter {
 		}
 		if (!wheelForwardEngaged) {
 			wheel.set(0);
+			wheelEncoder.reset();
+			resetPid();
 		}
 		if (reverseWheelButtonPressed) {
 			wheelReverseEngaged = !wheelReverseEngaged;
@@ -51,6 +53,8 @@ public class Shooter {
 		}
 		if (!wheelReverseEngaged) {
 			wheel.set(0);
+			wheelEncoder.reset();
+			resetPid();
 		}
 		if (wheelForwardEngaged && wheelReverseEngaged) {
 			wheel.set(-wheelSpeed);
