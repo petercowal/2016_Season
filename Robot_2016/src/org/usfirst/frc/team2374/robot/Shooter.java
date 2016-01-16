@@ -37,7 +37,7 @@ public class Shooter {
 			wheelForwardEngaged = !wheelForwardEngaged;
 		}
 		if (wheelForwardEngaged) {
-			PID(wheelSpeed);
+			PIDShooter(wheelSpeed);
 		}
 		if (!wheelForwardEngaged) {
 			wheel.set(0);
@@ -48,7 +48,7 @@ public class Shooter {
 			wheelReverseEngaged = !wheelReverseEngaged;
 		}
 		if (wheelReverseEngaged) {
-			PID(-wheelSpeed);
+			PIDShooter(-wheelSpeed);
 		}
 		if (!wheelReverseEngaged) {
 			wheel.set(0);
@@ -69,21 +69,22 @@ public class Shooter {
 
 	double motorVoltage = 0;
 	double integral;
-
-	public void PID(double target) {
-		double error = target - getRate();
+	double maxRate=9.79;
+	
+	public void PIDShooter(double targetSpeed) {
+		double error = targetSpeed*maxRate - getRate();
 		double P = 0.005;
 		double I = 0.00005;
 		double D = -0.005;
 		if (Math.abs(error) >= 0) {
 			motorVoltage += (error * P) + (error - prevError) * D
 					+ (integral * I);
-			if (motorVoltage > 1) {
-				motorVoltage = 1;
-			} else if (motorVoltage < -1) {
-				motorVoltage = -1;
+			if (motorVoltage > maxRate) {
+				motorVoltage = maxRate;
+			} else if (motorVoltage < -maxRate) {
+				motorVoltage = -maxRate;
 			}
-			wheel.set(motorVoltage);
+			wheel.set(motorVoltage/maxRate);
 			integral += error;
 			prevError = error;
 		}

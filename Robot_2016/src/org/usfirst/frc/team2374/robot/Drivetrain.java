@@ -34,10 +34,8 @@ public class Drivetrain {
 	public void update(double leftSpeed, double rightSpeed,
 			boolean backSolButtonPressed, boolean frontSolButtonPressed) { // perhaps revise the names in the future for the sake of succinctness
 
-		l1.set(leftSpeed);
-		l2.set(leftSpeed);
-		r1.set(rightSpeed);
-		r2.set(rightSpeed);
+		PID(leftSpeed, l1, l2);
+		PID(rightSpeed, r1, r2);
 		if (backSolButtonPressed) { // REVISE THIS METHOD PLEASE
 			if (backSolCanPress) {
 				if (solenoidBack.get() == DoubleSolenoid.Value.kOff) {
@@ -66,6 +64,32 @@ public class Drivetrain {
 		} else {
 			frontSolCanPress = true;
 		}
+	}
+	public double getRate() {
+		return encoder.getRate();
+	}
+	double maxRate=9.79;
+	double motorVoltage=0;
+	double integral;
+	double prevError;
+	public void PID(double targetSpeed, Talon motor1, Talon motor2) {
+			double error = targetSpeed*maxRate - getRate();
+			double P = 0.005;
+			double I = 0.00005;
+			double D = -0.005;
+			if (Math.abs(error) >= 0) {
+				motorVoltage += (error * P) + (error - prevError) * D
+						+ (integral * I);
+				if (motorVoltage > maxRate) {
+					motorVoltage = maxRate;
+				} else if (motorVoltage < -maxRate) {
+					motorVoltage = -maxRate;
+				}
+				motor1.set(motorVoltage/maxRate);
+				motor2.set(motorVoltage/maxRate);
+				integral += error;
+				prevError = error;
+			}
+		}
 		
 	}
-}
