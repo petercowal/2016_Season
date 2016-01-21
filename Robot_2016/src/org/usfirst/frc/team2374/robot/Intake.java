@@ -9,4 +9,6 @@ public class Intake {
 	public Intake(int port){
 		talon = new Talon(port);
 	}
+	public void update(double speed){
+	}
 }
