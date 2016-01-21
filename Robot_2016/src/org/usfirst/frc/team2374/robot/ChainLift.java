@@ -4,17 +4,19 @@ import edu.wpi.first.wpilibj.Talon;
 
 public class ChainLift {
 	Talon mainMotor;
+	double chainLiftSpeed = 0.5; //Change if necessary
 	
 	public ChainLift(int motorPort){
 		mainMotor = new Talon(motorPort); //This is a motor
 	}
 	
-	public void update(double rawAxis){
-		/*
-		 * Implement a method that takes an input of a raw axis as a parameter
-		 * and adjusts the motor speed accordingly
-		 */
-		mainMotor.set(rawAxis);
+	public void update(boolean chainUpButton, boolean chainDownButton){
+		if(chainUpButton){
+			mainMotor.set(chainLiftSpeed);
+		}
+		if(chainDownButton){
+			mainMotor.set(-chainLiftSpeed);
+		}
 	}
 
 }
