@@ -23,4 +23,8 @@ public class ButtonControl {
 		boolean frontSolPressed=controller.getRawAxis(3)!=0;
 		drivetrain.update(controller.getRawAxis(1), controller.getRawAxis(5), frontSolPressed, backSolPressed);
 	}
+	
+	public void update(){
+		
+	}
 }

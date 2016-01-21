@@ -4,11 +4,12 @@ import edu.wpi.first.wpilibj.Talon;
 
 public class Intake {
 	int intakePort;
-	Talon talon;
+	Talon intakeTalon;
 	
 	public Intake(int port){
-		talon = new Talon(port);
+		intakeTalon = new Talon(port);
 	}
 	public void update(double speed){
+		intakeTalon.set(speed);
 	}
 }
