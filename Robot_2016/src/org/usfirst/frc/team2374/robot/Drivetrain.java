@@ -32,7 +32,7 @@ public class Drivetrain {
 	boolean frontSolCanPress = true;
 
 	public void update(double leftSpeed, double rightSpeed,
-			boolean backSolButtonPressed, boolean frontSolButtonPressed) { // perhaps revise the names in the future for the sake of succinctness
+			boolean frontSolButtonPressed, boolean backSolButtonPressed) { // perhaps revise the names in the future for the sake of succinctness
 
 		PID(leftSpeed, l1, l2);
 		PID(rightSpeed, r1, r2);

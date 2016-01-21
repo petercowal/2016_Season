@@ -21,6 +21,6 @@ public class ButtonControl {
 		shooter.update(shooterSpeed, controller.getRawButton(5), controller.getRawButton(6));
 		boolean backSolPressed=controller.getRawAxis(2)!=0;
 		boolean frontSolPressed=controller.getRawAxis(3)!=0;
-		drivetrain.update(controller.getRawAxis(1), controller.getRawAxis(5), backSolPressed, frontSolPressed);
+		drivetrain.update(controller.getRawAxis(1), controller.getRawAxis(5), frontSolPressed, backSolPressed);
 	}
 }

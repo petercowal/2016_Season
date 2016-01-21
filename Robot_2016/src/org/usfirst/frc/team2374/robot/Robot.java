@@ -59,14 +59,15 @@ public class Robot extends SampleRobot {
     	myRobot.setSafetyEnabled(false);
         drivetrain.update(1, 1, false, false);
         Timer.delay(2.0);
-        drivetrain.update(0, 0, false, false);
+        drivetrain.update(0, 0, true, false);
+        
     }
 
     public void terrainAndShootAutonomous() {
     	myRobot.setSafetyEnabled(false);
         drivetrain.update(1, 1, false, false);
         Timer.delay(2.0);
-        drivetrain.update(0, 0, false, false);
+        drivetrain.update(0, 0, true, false);
     }
     /**
      * Runs the motors with arcade steering.
