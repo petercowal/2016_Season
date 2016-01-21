@@ -61,6 +61,7 @@ public class Robot extends SampleRobot {
         Timer.delay(2.0);
         drivetrain.update(0.5, 0.5, false, false);
         Timer.delay(2.0);
+        drivetrain.update(0, 0, true, false);
     }
 
     public void terrainAndShootAutonomous() {
@@ -69,6 +70,8 @@ public class Robot extends SampleRobot {
         Timer.delay(2.0);
         drivetrain.update(0.5, 0.5, false, false);
         Timer.delay(2.0);
+        drivetrain.update(0, 0, true, false);
+        angledShooter.update(1, true, false);
     }
     /**
      * Runs the motors with arcade steering.
@@ -76,7 +79,7 @@ public class Robot extends SampleRobot {
     public void operatorControl() {
         myRobot.setSafetyEnabled(true);
         while (isOperatorControl() && isEnabled()) {
-            myRobot.arcadeDrive(stick); // drive with arcade style (use right stick)
+            buttonControl.update();
             Timer.delay(0.005);		// wait for a motor update time
         }
     }
