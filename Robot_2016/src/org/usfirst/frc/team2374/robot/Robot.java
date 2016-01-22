@@ -26,7 +26,8 @@ import edu.wpi.first.wpilibj.Timer;
 
 
 public class Robot extends SampleRobot {
-    RobotDrive myRobot;
+    RobotDrive myRobot; //RobotDrive was replaced by the Drivetrain class, so you'd be better off
+    //removing all calls to myRobot and such.  -PC
     Joystick stick;
     Shooter angledShooter;
     ChainLift chainlift;
