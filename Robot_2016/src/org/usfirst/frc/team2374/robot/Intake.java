@@ -17,5 +17,6 @@ public class Intake {
 		if(intakeReverseButton){
 			intakeTalon.set(-intakeSpeed);
 		}
+		//when does the intake ever stop?
 	}
 }
