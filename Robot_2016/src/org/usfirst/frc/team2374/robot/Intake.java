@@ -17,5 +17,7 @@ public class Intake {
 		if(intakeReverseButton){
 			intakeTalon.set(-intakeSpeed);
 		}
+		//what happens if neither button is pressed?
+		//on a related note, under what circumstances does the intake stop moving?
 	}
 }
